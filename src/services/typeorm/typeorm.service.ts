@@ -11,7 +11,10 @@ export class TypeormService implements TypeOrmOptionsFactory {
       username: 'admin',
       password: 'Tlpecqmfv.05',
       database: 'valledupar-sites-nestjs',
+      extra: {
+        trustServerCertificate: true,
+      },
       entities: ['dist/**/*.model{.ts,.js}'],
-    };
+    }
   }
 }
