@@ -7,7 +7,7 @@ import { Site } from './models/site.model';
 
 @Module({
   imports: [
-    TypeOrmModule.forRootAsync({useClass: TypeormService}),
+    TypeOrmModule.forRootAsync({ useClass: TypeormService }),
     TypeOrmModule.forFeature([Site]),
   ],
   controllers: [AppController],
