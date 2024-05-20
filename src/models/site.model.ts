@@ -1,11 +1,15 @@
-import { Entity, PrimaryColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Site {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   site_id: number;
+  @Column()
   name: string;
+  @Column()
   description: string;
+  @Column()
   image: string;
-  state: boolean;
+  @Column()
+  status: boolean;
 }
