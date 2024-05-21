@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   HttpException,
   HttpStatus,
@@ -15,8 +16,21 @@ export class SiteController {
   constructor(private siteService: SiteService) {}
   @Get()
   get() {
+    //return `This action returns a Todos los Sitios`;
     return this.siteService
       .findAll()
+      .then((res) => {
+        return { success: true, data: res };
+      })
+      .catch((error) => {
+        throw new HttpException(error, HttpStatus.INTERNAL_SERVER_ERROR);
+      });
+  }
+  @Get(':id')
+  getById(@Param('id') id: number) {
+    //return `This action returns a #${id} cat`;
+    return this.siteService
+      .findById(id)
       .then((res) => {
         return { success: true, data: res };
       })
